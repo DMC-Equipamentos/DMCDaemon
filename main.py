@@ -1,3 +1,3 @@
-from PyServer.Server.serve import run_server
+from DMCDaemon.Server.serve import run_server
 
 run_server()
