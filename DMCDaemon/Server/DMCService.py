@@ -21,7 +21,7 @@ class DMCThread(Thread):
 
     def run(self):
         while True:
-            if self.task == 'download_and_record_pic':
+            if self.task == 'download_and_record':
                 print("IN TASK")
                 self.is_running = True
                 software_data = DMCCloud.getSoftware(self.task_args['id'])
@@ -39,7 +39,7 @@ class DMCThread(Thread):
             time.sleep(1)
 
     def downloadAndRecordPic(self, **kwargs):
-        self.task = "download_and_record_pic"
+        self.task = "download_and_record"
         self.task_args = kwargs
         print("should download_and_record")
 
