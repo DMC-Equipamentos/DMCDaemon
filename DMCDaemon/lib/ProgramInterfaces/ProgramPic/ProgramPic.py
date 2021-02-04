@@ -1,21 +1,21 @@
 import subprocess
 from os import path
-from ...config import *
+# from ...config import *
 import os
 import signal
 
 
 
-def record(ctx, hex_file="", pic="", programer=""):
+def record(ctx, hex_file, CMD = "", pic="", TOOL="", **kwargs):
     
     ctx.output = ""
-    
+
     cmd = [
             # 'java', '-jar', 
-            IPECMD,
+            CMD,
            "-F{}".format(hex_file), # Arquivo hex
            '-P{}'.format(pic), # pic
-           '-TP{}'.format(programer), # Programador
+           '-TP{}'.format(TOOL), # Programador
            '-M' # Gravar
     ] 
 
@@ -26,15 +26,9 @@ def record(ctx, hex_file="", pic="", programer=""):
     ctx.process = proc
     for line in proc.stdout:
         ctx.output+=line.decode();
-        if line.decode().startswith('Target device was not found'):
-            print("NOT FOUNDDDDD")
-
-            # proc.kill()
-            # break
-            # subprocess.Popen.kill(proc)
-            # os.killpg(os.getpgid(proc.pid), signal.SIGTERM)  
         print(line.decode())
 
+    proc.wait()
     ret = proc.poll()
     print("IN WAIT", proc.returncode, ret)
     # process.wait()

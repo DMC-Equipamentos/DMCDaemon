@@ -1,4 +1,4 @@
-from ..lib.PicRecorder.PicRecorder import record
+from ..lib.SoftwareRecorder.SoftwareRecorder import record_software
 from ..config import *
 import gevent
 from bottle import route, run, response, request
@@ -26,11 +26,12 @@ class DMCThread(Thread):
                 self.is_running = True
                 software_data = DMCCloud.getSoftware(self.task_args['id'])
                 print(software_data)
-                pic = software_data['software']['recording_comand']['variables']['pic']
+                variables = software_data['software']['recording_comand']['variables']
+                interface = software_data['software']['recording_comand']['software_type']
                 SoftwareDownloader.getFile(software_data['file'], 'myfile.hex')
                 print("start run")
                 self.output = "";
-                ret_code = record(self, hex_file = os.path.join(SOFTWARES_FOLDER,'myfile.hex'), pic=pic, programer='RICE') # '24F16KL401'
+                ret_code = record_software(self, interface, os.path.join(SOFTWARES_FOLDER,'myfile.hex'), **variables)
                 if ret_code != 0:
                     self.error = "Erro ao gravar!"
                 self.task = None
