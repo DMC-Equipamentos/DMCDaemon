@@ -1,0 +1,8 @@
+eoe 1
+device NRF52832_XXAA
+si SWD
+speed 4000
+connect
+erase
+loadfile ./DMCDaemon/downloads/myfile.hex
+q

@@ -1,5 +1,5 @@
 from ..lib.SoftwareRecorder.SoftwareRecorder import record_software
-from ..config import *
+from ...config import *
 import gevent
 from bottle import route, run, response, request
 from threading import Timer, Thread, Event
