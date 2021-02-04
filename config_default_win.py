@@ -23,5 +23,5 @@ NINAB11 = {
 
 AVR = {
     'CMD': 'avrdude',
-    
+    'TOOL': 'dragon_isp'
 }

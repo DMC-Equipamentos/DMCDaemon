@@ -2,16 +2,19 @@ import subprocess
 from os import path
 from ..ProgramInterfaces.ProgramPic import ProgramPic
 from ..ProgramInterfaces.ProgramNina import ProgramNina
+from ..ProgramInterfaces.ProgramAvr import ProgramAvr
 import config
 
 INTERFACE_FUCTIONS = {
     'microchip': ProgramPic.record,
-    'nina': ProgramNina.record
+    'nina': ProgramNina.record,
+    'avr': ProgramAvr.record
 }
 
 INTERFACE_CONFIG = {
     'microchip': config.MICROCHIP,
-    'nina': config.NINAB11    
+    'nina': config.NINAB11,
+    'avr': config.AVR 
 }
 
 
