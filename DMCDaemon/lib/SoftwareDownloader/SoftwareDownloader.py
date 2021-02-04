@@ -1,5 +1,5 @@
 import requests
-from ....config import * 
+from config import * 
 import os
 
 

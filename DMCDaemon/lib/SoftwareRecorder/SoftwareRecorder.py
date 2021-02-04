@@ -2,7 +2,7 @@ import subprocess
 from os import path
 from ..ProgramInterfaces.ProgramPic import ProgramPic
 from ..ProgramInterfaces.ProgramNina import ProgramNina
-from ... import config
+import config
 
 INTERFACE_FUCTIONS = {
     'microchip': ProgramPic.record,
