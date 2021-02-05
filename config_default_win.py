@@ -2,6 +2,8 @@
 # Pasta para fazer download dos arquivos de software
 SOFTWARES_FOLDER = "./DMCDaemon/downloads/"
 
+# Porta do serviço
+DAEMON_PORT = "8043"
 
 ## Interfaces de programa ##
 

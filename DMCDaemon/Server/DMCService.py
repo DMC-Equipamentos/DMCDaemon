@@ -107,5 +107,5 @@ class DMCThread(Thread):
         self.error = ""
 
 dmcThreading = DMCThread()
-print("start threading")
+# print("start threading")
 dmcThreading.start()

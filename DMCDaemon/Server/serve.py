@@ -1,5 +1,4 @@
-from gevent import monkey; monkey.patch_all()
-import gevent
+# from gevent import monkey; monkey.patch_all()
 from bottle import route, run, response, hook
 from .DMCService import dmcThreading
 
@@ -32,5 +31,6 @@ def dismiss_error():
     dmcThreading.eraseError()
     return {'status': 'waiting_resolution'}
 
-def run_server():
-    run(host='localhost', port=8080, server='gevent', debug = False, quiet=True)
+def run_server(port):
+    print("DMCService iniciando na porta {}".format(port))
+    run(host='localhost', port=port, debug = False, quiet=True)
