@@ -4,7 +4,11 @@ from os import path
 import os
 import signal
 
-
+ERROR_MESSAGES = {
+    9: "O programador não foi encontrado, certifique-se de que ele está conectado ao usb do computador.",
+    7: "O processador não foi encontrado, certifique-se que a placa a ser gravada está conectada e alimentada.",
+    10: "O programador não foi encontrado, certifique-se de que ele está conectado ao usb do computador.",
+}
 
 def record(ctx, hex_file, CMD = "", pic="", TOOL="", **kwargs):
     
@@ -17,7 +21,7 @@ def record(ctx, hex_file, CMD = "", pic="", TOOL="", **kwargs):
            '-P{}'.format(pic), # pic
            '-TP{}'.format(TOOL), # Programador
            '-M' # Gravar
-    ] 
+    ]
 
     print(" ".join(cmd))
     proc = subprocess.Popen(
@@ -34,5 +38,8 @@ def record(ctx, hex_file, CMD = "", pic="", TOOL="", **kwargs):
     # process.wait()
     
     ctx.return_code = proc.returncode
+
+    if (ret in ERROR_MESSAGES.keys()):
+        ctx.error = ERROR_MESSAGES[ret]
 
     return ctx.return_code

@@ -72,10 +72,10 @@ class DMCThread(Thread):
                 print("IN TASK")
                 self.is_running = True
                 ret_code = None
-
+                self.error = ""
                 try:
                     ret_code = self.download_and_program();
-                    if ret_code != 0:
+                    if ret_code != 0 and len(self.error) <= 1:
                         self.error = "Erro ao gravar!"
                 except Exception as e:
                     exc_type, exc_value, exc_traceback = sys.exc_info()
