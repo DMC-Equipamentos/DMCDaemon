@@ -2,6 +2,8 @@
 from bottle import route, run, response, hook
 from .DMCService import dmcThreading
 
+VERSION = "1.0.0"
+
 @hook('after_request')
 def enable_cors():
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -12,7 +14,7 @@ def enable_cors():
 
 @route('/echo')
 def echo():
-    return {"running":"ok", 'threading': dmcThreading.is_running, 'output': dmcThreading.output, 'error':dmcThreading.error}
+    return {"running":"ok", 'threading': dmcThreading.is_running, 'output': dmcThreading.output, 'error':dmcThreading.error, 'version':VERSION}
 
 
 @route('/rec_software/<id>')
