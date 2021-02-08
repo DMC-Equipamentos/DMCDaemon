@@ -1,7 +1,5 @@
 from ..lib.SoftwareRecorder.SoftwareRecorder import record_software
 from config import *
-import gevent
-from bottle import route, run, response, request
 from threading import Timer, Thread, Event
 from ..lib.SoftwareDownloader import SoftwareDownloader, DMCCloud
 import os
