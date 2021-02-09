@@ -4,5 +4,5 @@ si SWD
 speed 4000
 connect
 erase
-loadfile ./DMCDaemon/downloads/myfile.hex
+loadfile ./downloads/myfile.hex
 q
