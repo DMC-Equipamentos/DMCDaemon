@@ -8,7 +8,7 @@ Os arquivos necessários para instalaçoes das dependências podem ser acessados
 
 # Procedimento para instalação no windows no Windows
 
-- Acessar a URL: gravarplacas.dmcgroup.com.br/dependencias/Windows/
+- Acessar a URL: http://gravarplacas.dmcgroup.com.br/dependencias/Windows/
 
 - Baixar Todos os arquivos.
 
