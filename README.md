@@ -6,53 +6,24 @@ Para instalar é necessária a instalação de todas as dependências do python 
 
 Os arquivos necessários para instalaçoes das dependências podem ser acessados internamente em 192.168.2.164/dependencias/
 
-## Instalação do python
+# Procedimento para instalação no windows no Windows
 
-Esse processo utiliza o python 3.8, no ubuntu basta instalar com o apt, no windows, o arquivo de instalação se encontra nas dependências
+- Acessar a URL: gravarplacas.dmcgroup.com.br/dependencias/Windows/
 
-## Dependências do python
+- Baixar Todos os arquivos.
 
-Para instalar deve ser feito um:
+- Instalar o PYTHON (Rodar o executável duas vezes, garantir que foi instalado o PIP e que o python foi adicionado as variáveis de sistema)
 
-```
-pip install -r requirements.txt
-```
+- Instalar o GIT (garantir tbm que foi adicionado as variáveis de ambiente)
 
-Está disponível um arquivo executável para fazer isso, no windows: install-requirements.bat, no ubuntu install-requirements.sh
+- executar o arquivo: baixar_dmcservice.bat que foi baixado nos passos anteriores, isso fará com que o repo seja clonado do GITHUB (nesse passo ele vai pedir algum tipo de autenticação)
 
-## Arquivo de configuração
+- Dentro do repositório, deve ter um arquivo: install-requirements.bat, que deve ser executado, isso instalará todas as dependências do python.
 
-Existem dois arquivos de configuraçao disponíveis para os sistemas operacionais. Deve-se escolher o adequado e renomear para config.py
+- Instalar o MPLABX, WinAVR e JLinkExe baixados anteriormente, prestar atenção no caminho das instalacões do MPLABX e do JLinkExe.
 
-## Dependências de gravadores
+- Renomear o arquivo config_windows.yaml para config.yaml e alterar os caminhos necessários de acrodo com o que foi instalado.
+  
+- Criar um atalho no desktop para DMCService.bat.
 
-### MPLAB IPE
-
-#### No windows
-
-O arquivo de instalação se encontra no diretório de dependencias e deve ser instalado. Durante a instalação, pode-se desmarcar a opção de instalar o IDE, apenas o IPE é suficiente.
-
-
-#### No ubuntu
-
-O arquivo de instalação tbm se encontra na pasta e deve ser executado com permissão de root, deve se proceder como no windows. Deve-se proceder como no windows.
-
-#### Verificar config
-
-Deve-se garantir que o caminho para o executável no arquivo de configuração está correto, deve-se também alterar o gravador para o que a pessoa utiliza no computador. 
-
-### NINA JTAG
-
-O arquivo para instalação do JLinkExe se encontra na pasta de dependências, tanto para linux quanto para windows. Depois deve-se confirmar co caminho no arquivo de configuraçoes.
-
-### AVRDUDE
-
-#### No windows
-
-Deve-se instalar o WinAVR, ele já é instalado no PATH, então o arquivo de config não precisa ser alterado
-
-#### No ubuntu
-
-```
-sudo apt install avrdude
-```
+- Rodar e verificar se ele está funcionando corretamente.
