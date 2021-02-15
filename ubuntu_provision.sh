@@ -47,7 +47,7 @@ fi
 if @confirm 'Instalar mplab?'; then
     (
     mkdir -p install/mplabx
-    cd mplabx
+    cd install/mplabx
     # Instalar dependencias
     sudo apt-get install libc6:i386 libx11-6:i386 libxext6:i386 libstdc++6:i386 libexpat1:i386
     wget 'http://gravarplacas.dmcgroup.com.br/dependencias/Ubuntu/MPLABX-v5.45-linux-installer.sh' -O mplabx.sh    
@@ -61,10 +61,10 @@ fi
 if @confirm 'Instalar JLink?'; then
     (
         mkdir -p install/jlink
-        cd mplabx
+        cd install/jlink
         # Instalar dependencias
         wget 'http://gravarplacas.dmcgroup.com.br/dependencias/Ubuntu/JLink_Linux_V682c_x86_64.deb' -O jlink.deb
-        sudo apt install -y jlink.deb 
+        sudo apt install -y ./jlink.deb 
     )
 fi
 
