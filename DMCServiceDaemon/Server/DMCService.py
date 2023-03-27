@@ -56,8 +56,15 @@ class DMCThread(Thread):
     def download_and_program(self):
         software_data = DMCCloud.getSoftware(self.task_args['id'])
         print(software_data)
-        variables = software_data['software']['recording_comand']['variables']
-        interface = software_data['software']['recording_comand']['software_type']
+        
+        if 'compilation' in software_data:
+            recording_command = software_data['compilation']['recording_comand']
+        else :
+            recording_command = software_data['software']['recording_comand']
+            
+        print(recording_command)
+        variables = recording_command['variables']
+        interface = recording_command['software_type']
         SoftwareDownloader.getFile(software_data['file'], 'myfile.hex')
         print("start run")
         self.output = "";
