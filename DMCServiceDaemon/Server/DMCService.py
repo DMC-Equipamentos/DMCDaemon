@@ -57,7 +57,7 @@ class DMCThread(Thread):
         software_data = DMCCloud.getSoftware(self.task_args['id'])
         print(software_data)
         
-        if 'compilation' in software_data:
+        if software_data.get('compilation'): # verifica se existe uma compilação relativa a essa versão 
             recording_command = software_data['compilation']['recording_comand']
         else :
             recording_command = software_data['software']['recording_comand']
