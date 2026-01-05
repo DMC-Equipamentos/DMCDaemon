@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 82, in run
+    ret_code = self.download_and_program();
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 71, in download_and_program
+    ret_code = record_software(self, interface, os.path.join(SOFTWARES_FOLDER,'myfile.hex'), **variables)
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/lib/SoftwareRecorder/SoftwareRecorder.py", line 26, in record_software
+    return INTERFACE_FUCTIONS[interface](ctx, file_path, ** {**kwargs, ** INTERFACE_CONFIG[interface]})
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/lib/ProgramInterfaces/ProgramEsp32/ProgramEsp32.py", line 23, in record
+    proc = subprocess.Popen(
+  File "/usr/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.8/subprocess.py", line 1720, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/guilherme/esp/esp-idf/export.sh && esptool.py -b 900000 write_flash 0x10000'

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 82, in run
+    ret_code = self.download_and_program();
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 66, in download_and_program
+    variables = recording_command['variables']
+KeyError: 'variables'

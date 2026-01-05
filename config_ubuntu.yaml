@@ -18,3 +18,6 @@ NINAB11:
 AVR:
     CMD: avrdude
     TOOL: dragon_isp
+
+ESP32:
+    CMD: ./flash_esp32.sh

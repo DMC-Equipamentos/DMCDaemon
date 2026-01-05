@@ -15,3 +15,5 @@ MICROCHIP = settings_data['MICROCHIP']
 NINAB11 = settings_data['NINAB11']
 
 AVR = settings_data['AVR']
+
+ESP32 = settings_data['ESP32']

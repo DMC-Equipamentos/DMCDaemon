@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 82, in run
+    ret_code = self.download_and_program();
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/Server/DMCService.py", line 71, in download_and_program
+    ret_code = record_software(self, interface, os.path.join(SOFTWARES_FOLDER,'myfile.hex'), **variables)
+  File "/home/guilherme/PC34/Projetos/Gerais/DMCDaemon/DMCDaemon/DMCServiceDaemon/lib/SoftwareRecorder/SoftwareRecorder.py", line 26, in record_software
+    return INTERFACE_FUCTIONS[interface](ctx, file_path, ** {**kwargs, ** INTERFACE_CONFIG[interface]})
+TypeError: record() got an unexpected keyword argument 'esp32'

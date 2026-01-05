@@ -27,3 +27,7 @@ AVR = {
     'CMD': 'avrdude',
     'TOOL': 'dragon_isp'
 }
+
+ESP32 = {
+    'CMD': './DMCDaemon/flash_esp32.sh'
+}
