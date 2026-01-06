@@ -20,4 +20,4 @@ AVR:
     TOOL: dragon_isp
 
 ESP32:
-    CMD: flash_esp32
+    CMD:

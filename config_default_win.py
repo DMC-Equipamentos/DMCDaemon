@@ -29,5 +29,5 @@ AVR = {
 }
 
 ESP32 = {
-    'CMD': 'flash_esp32'
+    'CMD': ''
 }

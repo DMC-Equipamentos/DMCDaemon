@@ -29,5 +29,5 @@ AVR = {
 }
 
 ESP32 = {
-    'CMD': './DMCDaemon/flash_esp32.sh'
+    'CMD': ''
 }

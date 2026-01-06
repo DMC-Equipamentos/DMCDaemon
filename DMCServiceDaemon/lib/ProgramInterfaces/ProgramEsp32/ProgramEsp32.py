@@ -3,6 +3,7 @@ from os import path
 # from ...config import *
 import os
 import signal
+import platform
 
 ERROR_MESSAGES = {
     9: "O programador não foi encontrado, certifique-se de que ele está conectado ao usb do computador.",
@@ -14,9 +15,15 @@ def record(ctx, hex_file, CMD = ""):
     
     ctx.output = ""
 
+    baud = "900000" if platform.system() == "Linux" else "460800"
+
     cmd = [
-           CMD,
-           hex_file, # Arquivo bin
+        "python",
+        "-m", "esptool",
+        "-b", baud,
+        "write_flash",
+        "0x30000",
+        hex_file, # Arquivo bin
     ]
 
     print(" ".join(cmd))
