@@ -20,10 +20,11 @@ def record(ctx, hex_file, CMD = ""):
     cmd = [
         "python",
         "-m", "esptool",
+        "--chip", "esp32s3",
         "-b", baud,
         "write_flash",
-        "0x30000",
-        hex_file, # Arquivo bin
+        "0x00000",
+        hex_file, # Arquivo bin (bootloader + partition table + application)
     ]
 
     print(" ".join(cmd))
