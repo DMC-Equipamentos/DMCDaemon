@@ -1,8 +1,8 @@
 # from gevent import monkey; monkey.patch_all()
-from bottle import route, run, response, hook
+from bottle import route, run, request, response, hook
 from .DMCService import dmcThreading
 
-VERSION = "1.0.0"
+VERSION = "2.0.0"
 
 @hook('after_request')
 def enable_cors():
@@ -14,13 +14,20 @@ def enable_cors():
 
 @route('/echo')
 def echo():
-    return {"running":"ok", 'threading': dmcThreading.is_running, 'output': dmcThreading.output, 'error':dmcThreading.error, 'version':VERSION}
+
+    return {"running":"ok", 'threading': dmcThreading.is_running, 
+            'output': dmcThreading.output, 
+            'error':dmcThreading.error, 
+            'version':VERSION}
 
 
 @route('/rec_software/<id>')
 def record_software(id):
+
+    userToken = request.query.get('t')
+
     # print(request.json)
-    dmcThreading.downloadAndRecordPic(id=id)
+    dmcThreading.downloadAndRecordPic(id=id, userToken=userToken)
     return {'status': 'waiting_resolution'}
 
 @route('/stop_threading')

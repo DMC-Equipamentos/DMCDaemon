@@ -54,7 +54,7 @@ class DMCThread(Thread):
         self.task_args = {}
 
     def download_and_program(self):
-        software_data = DMCCloud.getSoftware(self.task_args['id'])
+        software_data = DMCCloud.getSoftware(self.task_args['id'], self.task_args['userToken'])
         print(software_data)
         
         if software_data.get('compilation'): # verifica se existe uma compilação relativa a essa versão 
@@ -65,9 +65,9 @@ class DMCThread(Thread):
         print(recording_command)
         variables = recording_command['variables']
         interface = recording_command['software_type']
-        SoftwareDownloader.getFile(software_data['file'], 'myfile.hex')
+        SoftwareDownloader.getFile(software_data['file'], 'myfile.hex', self.task_args['userToken'])
         print("start run")
-        self.output = "";
+        self.output = ""
         ret_code = record_software(self, interface, os.path.join(SOFTWARES_FOLDER,'myfile.hex'), **variables)   
         return ret_code     
 
@@ -79,7 +79,7 @@ class DMCThread(Thread):
                 ret_code = None
                 self.error = ""
                 try:
-                    ret_code = self.download_and_program();
+                    ret_code = self.download_and_program()
                     if ret_code != 0 and len(self.error) <= 1:
                         self.error = "Erro ao gravar!"
                 except Exception as e:
